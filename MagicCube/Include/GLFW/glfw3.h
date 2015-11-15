@@ -1,3 +1,4 @@
+#pragma once
 /*************************************************************************
  * GLFW 3.1 - www.glfw.org
  * A library for OpenGL, window and input

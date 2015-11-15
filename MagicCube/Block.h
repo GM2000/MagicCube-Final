@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
 #include <vector>
 #include <string>
 
@@ -88,7 +88,7 @@ private:
 public:
 	std::vector<block> Blocks;
 
-	block operator [](unsigned BlockID)
+	block operator [](unsigned int BlockID)
 	{
 		if (BlockID > Blocks.size())
 		{

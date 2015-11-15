@@ -38,7 +38,7 @@ int renderMainLoop()
 		//渲染
 
 		//交换缓存
-		glfwSwapBuffers(window);
+		glfwSwapBuffers(window); 
 
 		//处理用户交互
 		glfwPollEvents();

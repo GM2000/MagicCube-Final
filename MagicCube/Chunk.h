@@ -70,7 +70,7 @@ class chunks
 
 public:
 	//用Chunk的ID来访问Chunk（并没有什么大用）
-	chunk* operator [](int Count)
+	chunk* operator [](unsigned int Count)
 	{
 		return &Chunk[Count];
 	}

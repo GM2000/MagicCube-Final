@@ -75,7 +75,6 @@ public:
 	unsigned int addScreen()
 	{
 		Screen.push_back(screen());
-
 		VertexArrays.resize(Screen.size());
 
 		glGenVertexArrays(1,&VertexArrays[Screen.size() - 1]);

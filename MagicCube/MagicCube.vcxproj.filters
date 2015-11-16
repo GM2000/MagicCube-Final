@@ -25,6 +25,9 @@
     <Filter Include="Manager\RenderManager">
       <UniqueIdentifier>{e61ec51f-d209-44da-8b3a-3885decf4e46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\CallBackManager">
+      <UniqueIdentifier>{d53f0b7f-7c2b-47ef-9728-837adda2040b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagicCube.h">
@@ -61,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="LoadShader.cpp">
       <Filter>Manager\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="InitCallBack.cpp">
+      <Filter>Manager\CallBackManager</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowCallBack.cpp">
+      <Filter>Manager\CallBackManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

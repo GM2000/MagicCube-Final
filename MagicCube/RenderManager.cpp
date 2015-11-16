@@ -3,6 +3,7 @@
 
 GLFWwindow* window;
 
+void initCallBack();
 void initShaders();
 
 int initGL()
@@ -28,7 +29,10 @@ int initGL()
 		return -3;
 
 	initShaders();
+	initCallBack();
 
+	glfwSetWindowSize(window, 870, 512);
+	
 	return true;
 }
 int renderMainLoop()

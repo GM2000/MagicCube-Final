@@ -148,9 +148,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="InitCallBack.cpp" />
     <ClCompile Include="LoadShader.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="WindowCallBack.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,7 +15,10 @@ int main()
 	screen.addScreen();
 	screen.enableScreen(screen.addScreen());
 
-	screen.addRenderGroup()->setData();
+	renderGroup* RG = screen.addRenderGroup();
+	RG->IsEnable = true;
+	RG->draw();
+
 
 	screen.drawScreen();
 	return renderMainLoop();

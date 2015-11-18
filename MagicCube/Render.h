@@ -5,39 +5,6 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-//加载Shader所需的结构
-typedef struct
-{
-	GLenum       type;
-	const char*  filename;
-	GLuint       shader;
-} shaderInfo;
-//加载Shader的函数
-GLuint loadShaders(shaderInfo* shaders);
-
-class shader
-{
-	unsigned int ShaderProgramID = 0;
-public:
-	shader(std::string ShaderName)
-	{
-
-		ShaderName = "GLSL\\" + ShaderName;
-
-		std::string Vert = ShaderName;
-		Vert.append(".vert");
-		std::string Frag = ShaderName;
-		Frag.append(".frag");
-
-		shaderInfo  shaders[] = {
-			{ GL_VERTEX_SHADER, Vert.c_str() },
-			{ GL_FRAGMENT_SHADER, Frag.c_str() },
-			{ GL_NONE, NULL } };
-
-		ShaderProgramID = loadShaders(shaders);
-	}
-};
-
 class screen
 {
 	//每个都是正方形，数据排列为12(形状)+8(纹理)+16(颜色),法线这类的以后在加
@@ -79,6 +46,8 @@ public:
 	}
 	void drawScreen()
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 		Screen[NowEnableScreen].drawScreen();
 	}
 	//修改数据
@@ -96,3 +65,5 @@ public:
 		return Screen[NowEnableScreen].addRenderGroup();
 	}
 };
+
+extern screens Screen;

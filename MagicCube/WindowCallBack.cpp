@@ -7,5 +7,7 @@ glm::mat4 Projection;
 
 void windowResizeCallBack(GLFWwindow* window, int WindowsWidth, int WindowsHeight)
 {
+	glViewport(0, 0, WindowsWidth, WindowsHeight);
+
 	Projection = glm::perspective(45.0f, (GLfloat)WindowsWidth / (GLfloat)WindowsHeight, 0.1f, 500.0f);
 }

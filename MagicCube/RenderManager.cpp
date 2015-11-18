@@ -3,6 +3,8 @@
 
 GLFWwindow* window;
 
+screens Screen;
+
 void initCallBack();
 
 int initGL()
@@ -38,7 +40,7 @@ int renderMainLoop()
 	while (!glfwWindowShouldClose(window))
 	{
 		//‰÷»æ
-
+		Screen.drawScreen();
 		//Ωªªªª∫¥Ê
 		glfwSwapBuffers(window); 
 

@@ -1,54 +1,40 @@
 #pragma once
 
+#include "RenderGroup.h"
 #include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
-extern glm::mat4 Projection;
-
-class renderGroup
+//加载Shader所需的结构
+typedef struct
 {
-	glm::mat4 TransportMatrix	= glm::translate(glm::mat4(), glm::vec3(0.0,0.0,0.0));
-	glm::mat4 RotateMatrix		= glm::rotate_slow(glm::mat4(), 0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	GLenum       type;
+	const char*  filename;
+	GLuint       shader;
+} shaderInfo;
+//加载Shader的函数
+GLuint loadShaders(shaderInfo* shaders);
 
-	GLuint	Shader		= 0;
-	GLuint	Buffer		= 0;
-	GLuint  BufferSize	= 0;
+class shader
+{
+	unsigned int ShaderProgramID = 0;
 public:
-	bool	IsEnable = false;
-
-	void setShader(GLuint Shader)
+	shader(std::string ShaderName)
 	{
-		renderGroup::Shader = Shader;
-	}
-	void setData(std::vector<GLfloat> RenderData)
-	{
-		//普通
-		glGenBuffers(1, &Buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 
-		glBufferData(GL_ARRAY_BUFFER, RenderData.size() * sizeof(GLfloat), &RenderData[0], GL_STATIC_DRAW);
+		ShaderName = "GLSL\\" + ShaderName;
 
-		glVertexAttribPointer(0, 3, GL_FLOAT,
-			GL_FALSE, 0, (GLvoid*)0);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid*)(RenderData.size() * 12 * sizeof(GLfloat)));
+		std::string Vert = ShaderName;
+		Vert.append(".vert");
+		std::string Frag = ShaderName;
+		Frag.append(".frag");
 
-		glEnableVertexAttribArray(0);
-		glEnableVertexAttribArray(1);
+		shaderInfo  shaders[] = {
+			{ GL_VERTEX_SHADER, Vert.c_str() },
+			{ GL_FRAGMENT_SHADER, Frag.c_str() },
+			{ GL_NONE, NULL } };
 
-		BufferSize = RenderData.size();
-	}
-	void draw()
-	{
-		if (IsEnable)
-		{
-			glUseProgram(Shader);
-			glBindBuffer(GL_ARRAY_BUFFER, Buffer);
-
-			glDrawArrays(0, BufferSize, GL_QUADS);
-		}
+		ShaderProgramID = loadShaders(shaders);
 	}
 };
 

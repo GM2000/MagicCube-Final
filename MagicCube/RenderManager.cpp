@@ -4,7 +4,6 @@
 GLFWwindow* window;
 
 void initCallBack();
-void initShaders();
 
 int initGL()
 {
@@ -28,7 +27,6 @@ int initGL()
 	if (glewInit() != GLEW_OK)
 		return -3;
 
-	initShaders();
 	initCallBack();
 
 	glfwSetWindowSize(window, 870, 512);

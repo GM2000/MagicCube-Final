@@ -123,14 +123,3 @@ GLuint loadShaders(shaderInfo* shaders)
 
 	return program;
 }
-
-//加载所有会用到的Shader
-void initShaders()
-{
-	shaderInfo  shaders[] = {
-		{ GL_VERTEX_SHADER, "GLSL\\Normail2D.vert" },
-		{ GL_FRAGMENT_SHADER, "GLSL\\Normail2D.frag" },
-		{ GL_NONE, NULL } };
-
-	loadShaders(shaders);
-}

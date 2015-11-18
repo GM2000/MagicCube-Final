@@ -17,7 +17,23 @@ int main()
 
 	renderGroup* RG = screen.addRenderGroup();
 	RG->IsEnable = true;
-	RG->draw();
+
+	shader Normal2D("Normal2D");
+
+	std::vector<GLfloat> RD;
+	RD.push_back(-1.0);
+	RD.push_back(1.0);
+	RD.push_back(0.0);
+	RD.push_back(-1.0);
+	RD.push_back(-1.0);
+	RD.push_back(0.0);
+	RD.push_back(1.0);
+	RD.push_back(-1.0);
+	RD.push_back(0.0);
+	RD.push_back(1.0);
+	RD.push_back(1.0);
+	RD.push_back(0.0);
+	RG->setData(RD);
 
 
 	screen.drawScreen();

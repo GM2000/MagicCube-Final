@@ -16,6 +16,10 @@ public:
 
 		return &RenderGroup[RenderGroup.size() - 1];
 	}
+	renderGroup* getRenderGroup(int Count)
+	{
+		return &RenderGroup[Count];
+	}
 	void drawScreen()
 	{
 		for (unsigned int i = 0; i < RenderGroup.size(); i++)
@@ -29,11 +33,10 @@ public:
 class screens
 {
 	std::vector<screen> Screen;
-public:
 	std::vector<GLuint> VertexArrays;
 
-	unsigned int NowEnableScreen = 0;
-
+	unsigned int	NowEnableScreen = 0;
+public:
 	//äÖÈ¾
 	void enableScreen(unsigned int ScreenID)
 	{
@@ -63,6 +66,15 @@ public:
 	renderGroup* addRenderGroup()
 	{
 		return Screen[NowEnableScreen].addRenderGroup();
+	}
+	//¶ÁÈ¡Êı¾İ
+	screen* getScreen()
+	{
+		return &Screen[NowEnableScreen];
+	}
+	unsigned int getSize()
+	{
+		return Screen.size();
 	}
 };
 

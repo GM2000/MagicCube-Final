@@ -1,11 +1,12 @@
 
-#include "Render.h"
+#include "Screen.h"
 
 GLFWwindow* window;
 
 screens Screen;
 
 void initCallBack();
+void initShader();
 
 int initGL()
 {
@@ -29,6 +30,7 @@ int initGL()
 	if (glewInit() != GLEW_OK)
 		return -3;
 
+	initShader();
 	initCallBack();
 
 	glfwSetWindowSize(window, 870, 512);

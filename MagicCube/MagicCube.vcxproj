@@ -143,8 +143,9 @@
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="ChunkMap.h" />
     <ClInclude Include="MagicCube.h" />
-    <ClInclude Include="Render.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="RenderGroup.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>

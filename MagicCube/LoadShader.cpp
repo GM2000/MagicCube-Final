@@ -1,8 +1,11 @@
 
 #include <iostream>
+#include "Shader.h"
 #include <cstdio>
 #include <gl/glew.h>
 #include <GLFW\glfw3.h>
+
+std::vector<shader> Shader;
 
 typedef struct
 {
@@ -122,4 +125,17 @@ GLuint loadShaders(shaderInfo* shaders)
 	}
 
 	return program;
+}
+
+void initShader()
+{
+	shaderInfo  Normail_3D_Shader[] = {
+		{ GL_VERTEX_SHADER, "GLSL\\Normail3D.vert" },
+		{ GL_FRAGMENT_SHADER, "GLSL\\Normail3D.frag" },
+		{ GL_NONE, NULL } };
+
+	Shader.push_back(loadShaders(Normail_3D_Shader));
+	GLuint ProgramID = Shader[Shader.size() - 1].ProgramID;
+
+	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));
 }

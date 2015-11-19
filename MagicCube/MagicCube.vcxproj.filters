@@ -45,10 +45,13 @@
     <ClInclude Include="World.h">
       <Filter>Manager\WorldManager</Filter>
     </ClInclude>
-    <ClInclude Include="Render.h">
+    <ClInclude Include="RenderGroup.h">
       <Filter>Manager\RenderManager</Filter>
     </ClInclude>
-    <ClInclude Include="RenderGroup.h">
+    <ClInclude Include="Screen.h">
+      <Filter>Manager\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
       <Filter>Manager\RenderManager</Filter>
     </ClInclude>
   </ItemGroup>

@@ -18,6 +18,10 @@ public:
 	//RenderGroup指针
 	renderGroup *RenderGroup;
 
+	void RefreshRenderData()
+	{
+
+	}
 	//获取方块数据，请保证BlockX，BlockY，BlockZ在相应的范围内
 	blockData getBlock(unsigned char BlockX, unsigned char BlockY, unsigned char BlockZ)
 	{

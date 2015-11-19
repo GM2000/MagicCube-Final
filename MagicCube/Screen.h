@@ -1,9 +1,6 @@
 #pragma once
 
 #include "RenderGroup.h"
-#include <vector>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
 class screen
 {

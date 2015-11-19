@@ -2,8 +2,6 @@
 
 #include "Shader.h"
 #include <iostream>
-#include <vector>
-#include <GL/glew.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -42,6 +40,8 @@ public:
 		if (IsEnable)
 		{
 			glUniformMatrix4fv(ShaderProgramID->UniformLocation[0], 1, GL_TRUE, glm::value_ptr(Projection));
+			GLfloat ee[] = { 1.0,0.0,1.0 };
+			glUniform3fv(ShaderProgramID->UniformLocation[1], 1, ee);
 
  			glUseProgram(ShaderProgramID->ProgramID);
 			glBindBuffer(GL_ARRAY_BUFFER, Buffer);

@@ -1,9 +1,7 @@
 
-#include <iostream>
 #include "Shader.h"
+#include <iostream>
 #include <cstdio>
-#include <gl/glew.h>
-#include <GLFW\glfw3.h>
 
 std::vector<shader> Shader;
 
@@ -138,4 +136,5 @@ void initShader()
 	GLuint ProgramID = Shader[Shader.size() - 1].ProgramID;
 
 	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));
+	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Color"));
 }

@@ -2,6 +2,7 @@
 
 #include "Block.h"
 #include "ChunkMap.h"
+#include "RenderGroup.h"
 #include <list>
 #include <vector>
 
@@ -11,8 +12,11 @@ static int		MaxChunkNumber = 2500;
 class chunk
 {
 private:
+	//方块数据
 	blockData BlockData[16][16][256];
 public:
+	//RenderGroup指针
+	renderGroup *RenderGroup;
 
 	//获取方块数据，请保证BlockX，BlockY，BlockZ在相应的范围内
 	blockData getBlock(unsigned char BlockX, unsigned char BlockY, unsigned char BlockZ)
@@ -77,7 +81,7 @@ public:
 	//初始化Chunks，后期可能会有所修改
 	chunks()
 	{
-		Chunk.resize(MaxChunkNumber);
+		Chunk.reserve(MaxChunkNumber);
 	}
 	//添加一个Chunk，返回值表示了是否成功添加Chunk
 	bool addChunk(int ChunkX, int ChunkZ)

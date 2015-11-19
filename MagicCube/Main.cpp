@@ -8,6 +8,7 @@ int renderMainLoop();
 
 int main()
 {
+	chunks Chunk;
 	//初始化OpenGL
 	initGL();
 	//加载一个Shader并设置Shader类型（以后可能不需要标注类型）
@@ -23,6 +24,7 @@ int main()
 	RenderGroup->setShader(Normal2D);
 	std::vector<GLfloat> RenderData;
 
+	RenderData.reserve(100);
 	//提供渲染数据
 	RenderData.push_back(-1.0);
 	RenderData.push_back(1.0);
@@ -39,7 +41,7 @@ int main()
 	//OK！
 
 	//复制数据
-	RenderGroup->setData(RenderData);
+	RenderGroup->setData(&RenderData);
 	//激活渲染组
 	RenderGroup->IsEnable = true;
 	//第二块屏幕
@@ -69,7 +71,7 @@ int main()
 	//OK！
 
 	//复制数据
-	RenderGroup->setData(RenderData);
+	RenderGroup->setData(&RenderData);
 	//激活渲染组
 	RenderGroup->IsEnable = true;
 

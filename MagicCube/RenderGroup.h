@@ -60,13 +60,13 @@ public:
 	{
 		renderGroup::Shader = Shader;
 	}
-	void setData(std::vector<GLfloat> RenderData)
+	void setData(std::vector<GLfloat> *RenderData)
 	{
 		//ÆÕÍ¨
 		glGenBuffers(1, &Buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 
-		glBufferData(GL_ARRAY_BUFFER, RenderData.size() * sizeof(GLfloat), &RenderData[0], GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, RenderData->size() * sizeof(GLfloat), &RenderData[0], GL_STATIC_DRAW);
 
 		switch (Shader.InputDataType)
 		{
@@ -75,7 +75,7 @@ public:
 			glEnableVertexAttribArray(0);
 		}
 
-		BufferSize = RenderData.size();
+		BufferSize = RenderData->size();
 	}
 	void draw()
 	{

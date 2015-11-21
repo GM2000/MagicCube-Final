@@ -27,16 +27,16 @@ int main()
 	//提供渲染数据
 	RenderData.push_back(-0.5);
 	RenderData.push_back(0.5);
-	RenderData.push_back(-1.0);
+	RenderData.push_back(0.0);
 	RenderData.push_back(-0.5);
 	RenderData.push_back(-0.5);
-	RenderData.push_back(-1.0);
+	RenderData.push_back(0.0);
 	RenderData.push_back(0.5);
 	RenderData.push_back(-0.5);
-	RenderData.push_back(-1.0);
+	RenderData.push_back(0.0);
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.5);
-	RenderData.push_back(-1.0);
+	RenderData.push_back(0.0);
 	//OK！
 
 	//复制数据

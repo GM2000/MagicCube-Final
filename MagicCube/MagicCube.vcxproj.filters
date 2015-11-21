@@ -31,6 +31,9 @@
     <Filter Include="Manager\RenderManager\ScreenManager">
       <UniqueIdentifier>{812e1eda-7dba-4bda-9007-95dae47ab4d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\MobManager">
+      <UniqueIdentifier>{ac19d53a-cb60-445e-bcca-6310d8d0cbb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagicCube.h">
@@ -57,6 +60,12 @@
     <ClInclude Include="RenderGroup.h">
       <Filter>Manager\RenderManager\ScreenManager</Filter>
     </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Manager\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Mob.h">
+      <Filter>Manager\MobManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -78,6 +87,9 @@
       <Filter>Manager\CallBackManager</Filter>
     </ClCompile>
     <ClCompile Include="WindowCallBack.cpp">
+      <Filter>Manager\CallBackManager</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoardCallBack.cpp">
       <Filter>Manager\CallBackManager</Filter>
     </ClCompile>
   </ItemGroup>

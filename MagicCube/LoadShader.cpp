@@ -1,7 +1,5 @@
 
 #include "Shader.h"
-#include <iostream>
-#include <cstdio>
 
 std::vector<shader> Shader;
 

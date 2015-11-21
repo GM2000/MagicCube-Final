@@ -1,5 +1,5 @@
 
-#include <GLFW/glfw3.h>
+#include "MagicCube.h"
 
 extern GLFWwindow* window;
 

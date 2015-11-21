@@ -1,8 +1,6 @@
 #pragma once
 
-#include <GL/glew.h>
-#include <vector>
-#include <string>
+#include "MagicCube.h"
 
 const int Texture_Up	 = 0;
 const int Texture_Down	 = 1;

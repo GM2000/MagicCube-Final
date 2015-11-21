@@ -2,8 +2,8 @@
 #include "Screen.h"
 
 glm::mat4 GobalProjection = glm::perspective(45.0f, (GLfloat)640 / (GLfloat)480, 0.1f, 500.0f);
-glm::mat4 GobalTranslate = glm::translate(glm::mat4(), glm::vec3(0.0, 0.0, -1.0));
-glm::mat4 GobalRotate = glm::rotate_slow(glm::mat4(), 1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+glm::mat4 GobalTranslate = glm::translate(glm::mat4(), glm::vec3(0.0, 0.0, 0.0));
+glm::mat4 GobalRotate = glm::rotate_slow(glm::mat4(), 0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 GLFWwindow* window;
 

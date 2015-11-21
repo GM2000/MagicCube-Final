@@ -3,8 +3,6 @@
 #include "Block.h"
 #include "ChunkMap.h"
 #include "RenderGroup.h"
-#include <list>
-#include <vector>
 
 static int		MaxChunkNumber = 2500;
 

@@ -28,6 +28,9 @@
     <Filter Include="Manager\CallBackManager">
       <UniqueIdentifier>{d53f0b7f-7c2b-47ef-9728-837adda2040b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\RenderManager\ScreenManager">
+      <UniqueIdentifier>{812e1eda-7dba-4bda-9007-95dae47ab4d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagicCube.h">
@@ -45,14 +48,14 @@
     <ClInclude Include="World.h">
       <Filter>Manager\WorldManager</Filter>
     </ClInclude>
-    <ClInclude Include="RenderGroup.h">
+    <ClInclude Include="Shader.h">
       <Filter>Manager\RenderManager</Filter>
     </ClInclude>
     <ClInclude Include="Screen.h">
-      <Filter>Manager\RenderManager</Filter>
+      <Filter>Manager\RenderManager\ScreenManager</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Manager\RenderManager</Filter>
+    <ClInclude Include="RenderGroup.h">
+      <Filter>Manager\RenderManager\ScreenManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

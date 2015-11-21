@@ -136,5 +136,6 @@ void initShader()
 	GLuint ProgramID = Shader[Shader.size() - 1].ProgramID;
 
 	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));
-	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Color"));
+	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Rotate"));
+	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Translate"));
 }

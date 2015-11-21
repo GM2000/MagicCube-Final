@@ -4,13 +4,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-extern glm::mat4 Projection;
+extern glm::mat4 GobalProjection;
+extern glm::mat4 GobalTranslate;
+extern glm::mat4 GobalRotate;
 
 class renderGroup
 {
-	glm::mat4 TransportMatrix = glm::translate(glm::mat4(), glm::vec3(0.0, 0.0, 0.0));
-	glm::mat4 RotateMatrix = glm::rotate_slow(glm::mat4(), 0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-
 	shader	*ShaderProgramID= 0;
 	GLuint	Buffer			= 0;
 	GLuint  BufferSize		= 0;
@@ -38,7 +37,9 @@ public:
 	{
 		if (IsEnable)
 		{
-			glUniformMatrix4fv(ShaderProgramID->UniformLocation[0], 1, GL_TRUE, glm::value_ptr(Projection));
+			glUniformMatrix4fv(ShaderProgramID->UniformLocation[0], 1, GL_TRUE, glm::value_ptr(GobalProjection));
+			glUniformMatrix4fv(ShaderProgramID->UniformLocation[1], 1, GL_TRUE, glm::value_ptr(GobalTranslate));
+			glUniformMatrix4fv(ShaderProgramID->UniformLocation[2], 1, GL_TRUE, glm::value_ptr(GobalRotate));
 			GLfloat ee[] = { 1.0,0.0,1.0 };
 			glUniform3fv(ShaderProgramID->UniformLocation[1], 1, ee);
 

@@ -8,3 +8,5 @@
 #include <cstdio>
 #include <list>
 #include <vector>
+
+extern bool Keys[512];

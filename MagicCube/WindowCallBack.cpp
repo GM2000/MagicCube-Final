@@ -1,7 +1,7 @@
 
 #include "Screen.h"
 
-void windowResizeCallBack(GLFWwindow* window, int WindowsWidth, int WindowsHeight)
+void windowResizeCallBack(GLFWwindow* Window, int WindowsWidth, int WindowsHeight)
 {
 	glViewport(0, 0, WindowsWidth, WindowsHeight);
 

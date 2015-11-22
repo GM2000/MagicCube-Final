@@ -115,7 +115,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <OmitFramePointers>false</OmitFramePointers>
+      <OmitFramePointers>true</OmitFramePointers>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -152,6 +152,7 @@
     <ClInclude Include="ChunkMap.h" />
     <ClInclude Include="MagicCube.h" />
     <ClInclude Include="Mob.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="RenderGroup.h" />
@@ -160,9 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="InitCallBack.cpp" />
     <ClCompile Include="KeyBoardCallBack.cpp" />
     <ClCompile Include="LoadShader.cpp" />
+    <ClCompile Include="Mob.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />

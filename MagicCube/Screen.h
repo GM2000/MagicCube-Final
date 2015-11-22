@@ -1,11 +1,13 @@
 #pragma once
 
 #include "RenderGroup.h"
-
+#include "Player.h"
 class screen
 {
 	//每个都是正方形，数据排列为12(形状)+8(纹理)+16(颜色),法线这类的以后在加
 	std::vector<renderGroup> RenderGroup;
+
+	bool IsGameScreen = false;
 public:
 	renderGroup* addRenderGroup()
 	{
@@ -16,6 +18,18 @@ public:
 	renderGroup* getRenderGroup(int Count)
 	{
 		return &RenderGroup[Count];
+	}
+	screen(bool IsGameScreen)
+	{
+		screen::IsGameScreen = IsGameScreen;
+	}
+	void screenLoop()
+	{
+		if (IsGameScreen)
+		{
+			//游戏主循环
+			Player.playerMove();
+		}
 	}
 	void drawScreen()
 	{
@@ -51,9 +65,9 @@ public:
 		Screen[NowEnableScreen].drawScreen();
 	}
 	//修改数据
-	unsigned int addScreen()
+	unsigned int addScreen(bool IsGameScreen)
 	{
-		Screen.push_back(screen());
+		Screen.push_back(screen(IsGameScreen));
 		VertexArrays.resize(Screen.size());
 
 		glGenVertexArrays(1,&VertexArrays[Screen.size() - 1]);
@@ -65,13 +79,14 @@ public:
 		return Screen[NowEnableScreen].addRenderGroup();
 	}
 	//读取数据
-	screen* getScreen()
-	{
-		return &Screen[NowEnableScreen];
-	}
 	unsigned int getSize()
 	{
 		return Screen.size();
+	}
+	//处理屏幕内的消息
+	void screenLoop()
+	{
+		Screen[NowEnableScreen].screenLoop();
 	}
 };
 

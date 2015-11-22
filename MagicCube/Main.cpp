@@ -6,6 +6,7 @@
 
 int initGL();
 int renderMainLoop();
+void initGame();
 
 int main()
 {
@@ -14,7 +15,7 @@ int main()
 	initGL();
 
 	//添加一个屏幕并且激活
-	Screen.enableScreen(Screen.addScreen());
+	Screen.enableScreen(Screen.addScreen(true));
 
 	//获取新的RenderGroup的指针
 	renderGroup* RenderGroup = Screen.addRenderGroup();
@@ -43,6 +44,8 @@ int main()
 	RenderGroup->setData(&RenderData);
 	//激活渲染组
 	RenderGroup->IsEnable = true;
+
+	initGame();
 
 	//渲染主循环
 	return renderMainLoop();

@@ -47,6 +47,7 @@ int renderMainLoop()
 	{
 		//‰÷»æ
 		Screen.drawScreen();
+		Screen.screenLoop();
 		//Ωªªªª∫¥Ê
 		glfwSwapBuffers(window); 
 

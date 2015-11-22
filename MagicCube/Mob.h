@@ -15,6 +15,7 @@ class mob
 {
 public:
 	location MobLocation;
+	float Speed;
 	mob()
 	{
 		MobLocation.X = 0;
@@ -22,6 +23,7 @@ public:
 		MobLocation.Z = 0;
 		MobLocation.XRot = 0;
 		MobLocation.YRot = 0;
+		Speed = 1;
 	}
 };
 class mobs
@@ -38,3 +40,5 @@ public:
 		Mob.push_back(mob());
 	}
 };
+
+extern mobs Mobs;

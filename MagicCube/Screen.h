@@ -63,7 +63,7 @@ public:
 
 		glGenVertexArrays(1,&VertexArrays[Screen.size() - 1]);
 
-		return Screen.size() - 1;
+		return (unsigned int)Screen.size() - 1;
 	}
 	renderGroup* addRenderGroup()
 	{
@@ -76,7 +76,7 @@ public:
 	}
 	unsigned int getSize()
 	{
-		return Screen.size();
+		return (unsigned int)Screen.size();
 	}
 };
 

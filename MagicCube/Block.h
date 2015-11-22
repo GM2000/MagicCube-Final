@@ -95,6 +95,6 @@ public:
 	}
 	void addBlock(const char* BlockName, blockTexture BlockTexture,unsigned int BlockType)
 	{
-		Blocks.push_back(block(Blocks.size(), BlockTexture, BlockName, BlockType));
+		Blocks.push_back(block((unsigned int)Blocks.size(), BlockTexture, BlockName, BlockType));
 	}
 };

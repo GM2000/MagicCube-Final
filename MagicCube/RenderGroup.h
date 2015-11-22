@@ -25,7 +25,7 @@ public:
 		glVertexAttribPointer(0, 3, GL_FLOAT,GL_FALSE, 0, (GLvoid*)0);
 		glEnableVertexAttribArray(0);
 
-		BufferSize = RenderData->size();
+		BufferSize =(GLuint)RenderData->size();
 	}
 	void draw()
 	{

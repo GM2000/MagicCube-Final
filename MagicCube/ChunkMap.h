@@ -111,7 +111,7 @@ class chunkMap
 		int NowRight = 0;
 		int NowMid = 0;
 
-		int NowLeft = ChunkMap.size() - 1;
+		int NowLeft = (int)ChunkMap.size() - 1;
 
 		while (NowRight <= NowLeft)
 		{

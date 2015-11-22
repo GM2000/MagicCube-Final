@@ -104,5 +104,8 @@
     <ClCompile Include="Mob.cpp">
       <Filter>Manager\MobManager</Filter>
     </ClCompile>
+    <ClCompile Include="MouseCallBack.cpp">
+      <Filter>Manager\CallBackManager</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

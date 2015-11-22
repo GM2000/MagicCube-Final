@@ -31,13 +31,11 @@ class mobs
 
 public:
 	std::vector<mob> Mob;
-	mobs()
+
+	mob* addMob()
 	{
 		Mob.push_back(mob());
-	}
-	void addMob()
-	{
-		Mob.push_back(mob());
+		return &Mob[Mob.size() - 1];
 	}
 };
 

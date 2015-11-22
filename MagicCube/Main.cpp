@@ -1,8 +1,8 @@
 
-#include "World.h"
-#include "Block.h"
-
 #include "Screen.h"
+#include "Chunk.h"
+//初始化Chunk
+chunks Chunk;
 
 int initGL();
 int renderMainLoop();
@@ -10,7 +10,6 @@ void initGame();
 
 int main()
 {
-	chunks Chunk;
 	//初始化OpenGL
 	initGL();
 
@@ -45,6 +44,7 @@ int main()
 	//激活渲染组
 	RenderGroup->IsEnable = true;
 
+	//初始化游戏
 	initGame();
 
 	//渲染主循环

@@ -23,14 +23,6 @@ public:
 	{
 		screen::IsGameScreen = IsGameScreen;
 	}
-	void screenLoop()
-	{
-		if (IsGameScreen)
-		{
-			//游戏主循环
-			Player.playerMove();
-		}
-	}
 	void drawScreen()
 	{
 		for (unsigned int i = 0; i < RenderGroup.size(); i++)
@@ -79,14 +71,13 @@ public:
 		return Screen[NowEnableScreen].addRenderGroup();
 	}
 	//读取数据
+	unsigned int getEnableScreen()
+	{
+		return NowEnableScreen;
+	}
 	unsigned int getSize()
 	{
 		return Screen.size();
-	}
-	//处理屏幕内的消息
-	void screenLoop()
-	{
-		Screen[NowEnableScreen].screenLoop();
 	}
 };
 

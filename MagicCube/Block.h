@@ -15,8 +15,7 @@ const int Block_Tyoe_HalfBlock		= 1;
 struct blockData
 {
 	unsigned int	BlockID			= 0;
-	unsigned short	BlockAddition	= 0;
-	unsigned char	Light			= 0;
+	unsigned char	BlockAddition	= 0;
 };
 
 class blocks

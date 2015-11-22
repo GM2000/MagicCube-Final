@@ -92,6 +92,8 @@
       <StackReserveSize>0x10000000</StackReserveSize>
       <LargeAddressAware>true</LargeAddressAware>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <HeapReserveSize>
+      </HeapReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,6 +132,8 @@
       <LargeAddressAware>true</LargeAddressAware>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <HeapReserveSize>
+      </HeapReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,6 +170,7 @@
     <ClCompile Include="KeyBoardCallBack.cpp" />
     <ClCompile Include="LoadShader.cpp" />
     <ClCompile Include="Mob.cpp" />
+    <ClCompile Include="MouseCallBack.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />

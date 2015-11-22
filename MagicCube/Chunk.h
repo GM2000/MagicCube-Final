@@ -4,7 +4,7 @@
 #include "ChunkMap.h"
 #include "RenderGroup.h"
 
-static int		MaxChunkNumber = 2500;
+static int		MaxChunkNumber = 1024;
 
 //储存单个Chunk的数据
 class chunk
@@ -16,10 +16,6 @@ public:
 	//RenderGroup指针
 	renderGroup *RenderGroup;
 
-	void RefreshRenderData()
-	{
-
-	}
 	//获取方块数据，请保证BlockX，BlockY，BlockZ在相应的范围内
 	blockData getBlock(unsigned char BlockX, unsigned char BlockY, unsigned char BlockZ)
 	{

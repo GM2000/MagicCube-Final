@@ -11,5 +11,5 @@ layout(location = 0) in  vec4 in_position;
 void  main()  
 {  
 	FColor=vec3(0.0,1.0,0.0);
-	gl_Position = in_position * Translate * Rotate * Frustum;  
+	gl_Position = in_position * Rotate * Translate * Frustum;  
 }  

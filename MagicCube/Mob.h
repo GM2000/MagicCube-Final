@@ -8,14 +8,14 @@ struct location
 	float Y;
 	float Z;
 
-	float XRot;
-	float YRot;
+	double XRot;
+	double YRot;
 };
 class mob
 {
 public:
 	location MobLocation;
-	float Speed;
+	double Speed;
 	mob()
 	{
 		MobLocation.X = 0;
@@ -39,4 +39,4 @@ public:
 	}
 };
 
-extern mobs Mobs;
+extern mobs Mob;

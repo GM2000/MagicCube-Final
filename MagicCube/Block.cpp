@@ -9,8 +9,8 @@ void blocks::block::addRenderData(std::vector<GLfloat> *TodalData, int Addition,
 	{
 	case Block_Tyoe_Block_Normal:
 	{
-		TodalData->push_back(0.0);
-		TodalData->push_back(3.2);
+		TodalData->push_back(0.0f);
+		TodalData->push_back(3.2f);
 	}
 	default:
 		break;

@@ -4,7 +4,7 @@
 #include "ChunkMap.h"
 #include "RenderGroup.h"
 
-static int		MaxChunkNumber = 1024;
+static int		MaxChunkNumber = 512;
 
 //储存单个Chunk的数据
 class chunk

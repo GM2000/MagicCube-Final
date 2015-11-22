@@ -37,6 +37,9 @@
     <Filter Include="Manager\GameManager">
       <UniqueIdentifier>{e5f1ac33-8c71-4e61-8c90-ed52f4d3c4f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\MobManager\PlayerManager">
+      <UniqueIdentifier>{0fb9b6de-18ed-4903-9a35-ba0ec248098a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagicCube.h">
@@ -70,7 +73,7 @@
       <Filter>Manager\MobManager</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Manager\GameManager</Filter>
+      <Filter>Manager\MobManager\PlayerManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="MouseCallBack.cpp">
       <Filter>Manager\CallBackManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Manager\RenderManager\ScreenManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

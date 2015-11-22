@@ -1,4 +1,4 @@
 
 #include "Mob.h"
 
-mobs Mobs;
+mobs Mob;

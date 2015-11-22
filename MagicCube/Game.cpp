@@ -4,15 +4,16 @@
 #include "World.h"
 #include "Screen.h"
 
-player Player;
-
 std::thread GameThread;
 
+player Player;
+
+//ÓÎÏ·Ö÷Ñ­»·
 void gameMain()
 {
 	while (!glfwWindowShouldClose(window))
 	{
-		if (Screen.getEnableScreen() != 0)
+		if (Screen.getEnableScreen() == 0)
 		{
 
 		}
@@ -25,7 +26,6 @@ void gameMain()
 
 void initGame()
 {
-	Player.bindMob(Mobs.addMob());
-
 	GameThread = std::thread(gameMain);
+	Player.bindMob(Mob.addMob());
 }

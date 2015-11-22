@@ -7,14 +7,22 @@ chunks Chunk;
 int initGL();
 int renderMainLoop();
 void initGame();
+void initScreen();
 
 int main()
 {
 	//初始化OpenGL
 	initGL();
 
+	//初始化游戏
+	initGame();
+
+	initScreen();
+
 	//添加一个屏幕并且激活
-	Screen.enableScreen(Screen.addScreen(true));
+	//Screen.enableScreen(Screen.addScreen());
+	//添加一个屏幕并且激活
+	Screen.enableScreen(screenInfo::GameScreen);
 
 	//获取新的RenderGroup的指针
 	renderGroup* RenderGroup = Screen.addRenderGroup();
@@ -37,6 +45,19 @@ int main()
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.0);
+
+	RenderData.push_back(-0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(1.0);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(1.0);
+	RenderData.push_back(0.5);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(1.0);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(1.0);
 	//OK！
 
 	//复制数据
@@ -44,8 +65,6 @@ int main()
 	//激活渲染组
 	RenderGroup->IsEnable = true;
 
-	//初始化游戏
-	initGame();
 
 	//渲染主循环
 	return renderMainLoop();

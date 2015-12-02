@@ -4,7 +4,7 @@
 #include "ChunkMap.h"
 #include "RenderGroup.h"
 
-static int		MaxChunkNumber = 10240;
+static int		MaxChunkNumber = 1024;
 
 //储存单个Chunk的数据
 class chunk
@@ -43,7 +43,7 @@ public:
 static chunk	EmptyChunk;
 
 //储存一组Chunk（一般来说每个world有切仅有一个chunks类的变量）
-class chunks
+class world
 {
 	//寻找空闲的ChunkID
 	unsigned int findFreeChunkID()
@@ -77,7 +77,7 @@ public:
 		return &Chunk[Count];
 	}
 	//初始化Chunks，后期可能会有所修改
-	chunks()
+	world()
 	{
 		Chunk.reserve(MaxChunkNumber);
 	}

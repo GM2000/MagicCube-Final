@@ -1,8 +1,11 @@
 #version 330 core 
 
-out vec3 fColor;
-in vec3 FColor;
+out vec4 fColor;
+in vec2 tx_position;
+
+uniform sampler2D tex;
+
 void  main()  
 {  
-	fColor =FColor; 
+	fColor =texture2D(tex,tx_position); 
 }  

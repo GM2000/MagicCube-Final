@@ -1,12 +1,9 @@
 #pragma once
 
-/***********/
-//屏幕类
-//不完美支持多线程
-/***********/
-
 #include "RenderGroup.h"
 #include "Player.h"
+#include <mutex>
+
 class screen
 {
 	//每个都是正方形，数据排列为12(形状)+8(纹理)+16(颜色),法线这类的以后在加
@@ -36,6 +33,7 @@ class screens
 {
 	std::vector<screen> Screen;
 	std::vector<GLuint> VertexArrays;
+	std::mutex NowEnableScreenMutex;
 
 	unsigned int	NowEnableScreen = 0;
 public:
@@ -46,13 +44,15 @@ public:
 		{
 			glBindVertexArray(VertexArrays[ScreenID]);
 
+			NowEnableScreenMutex.lock();
 			NowEnableScreen = ScreenID;
+			NowEnableScreenMutex.unlock();
 		}
 	}
 	void drawScreen()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+		
 		Screen[NowEnableScreen].drawScreen();
 	}
 	//修改数据
@@ -72,7 +72,13 @@ public:
 	//读取数据
 	unsigned int getEnableScreen()
 	{
-		return NowEnableScreen;
+		NowEnableScreenMutex.lock();
+
+		int ReturnData = NowEnableScreen;
+
+		NowEnableScreenMutex.unlock();
+
+		return ReturnData;
 	}
 	unsigned int getSize()
 	{

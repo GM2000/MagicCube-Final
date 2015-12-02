@@ -34,6 +34,8 @@ int initGL()
 	if (glewInit() != GLEW_OK)
 		return -3;
 
+	//glClearColor(1.0, 1.0, 1.0, 1.0);
+
 	initShader();
 	initCallBack();
 

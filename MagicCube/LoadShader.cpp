@@ -2,6 +2,7 @@
 #include "Shader.h"
 
 std::vector<shader> Shader;
+std::vector<GLuint> UniformLocation;
 
 typedef struct
 {
@@ -130,10 +131,10 @@ void initShader()
 		{ GL_FRAGMENT_SHADER, "GLSL\\Normail3D.frag" },
 		{ GL_NONE, NULL } };
 
-	Shader.push_back(loadShaders(Normail_3D_Shader));
+	Shader.push_back(shader(loadShaders(Normail_3D_Shader), normail3DSet, normail3DPrepare,5));
 	GLuint ProgramID = Shader[Shader.size() - 1].ProgramID;
 
-	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));
-	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Rotate"));
-	Shader[Shader.size() - 1].UniformLocation.push_back(glGetUniformLocation(ProgramID, "Translate"));
+	UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));
+	UniformLocation.push_back(glGetUniformLocation(ProgramID, "Rotate"));
+	UniformLocation.push_back(glGetUniformLocation(ProgramID, "Translate"));
 }

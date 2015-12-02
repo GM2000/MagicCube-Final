@@ -2,12 +2,13 @@
 #include "Screen.h"
 #include "Chunk.h"
 //初始化Chunk
-chunks Chunk;
+world MainWorld;
 
 int initGL();
 int renderMainLoop();
 void initGame();
 void initScreen();
+void initTexture();
 
 int main()
 {
@@ -18,6 +19,8 @@ int main()
 	initGame();
 
 	initScreen();
+
+	initTexture();
 
 	//添加一个屏幕并且激活
 	//Screen.enableScreen(Screen.addScreen());
@@ -36,28 +39,70 @@ int main()
 	RenderData.push_back(-0.5);
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.0);
+
 	RenderData.push_back(-0.5);
 	RenderData.push_back(-0.5);
 	RenderData.push_back(0.0);
+
 	RenderData.push_back(0.5);
 	RenderData.push_back(-0.5);
 	RenderData.push_back(0.0);
+
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.0);
 
+	RenderData.push_back(0.0);
+	RenderData.push_back(0.0);
+	RenderData.push_back(0.0);
+	RenderData.push_back(1.0);
+	RenderData.push_back(1.0);
+	RenderData.push_back(1.0);
+	RenderData.push_back(1.0);
+	RenderData.push_back(0.0);
+	/*
 	RenderData.push_back(-0.5);
 	RenderData.push_back(0.5);
-	RenderData.push_back(1.0);
+	RenderData.push_back(-0.5);
+
+	RenderData.push_back(0.0);
+	RenderData.push_back(0.0);
+
 	RenderData.push_back(-0.5);
 	RenderData.push_back(-0.5);
+	RenderData.push_back(-0.5);
+
+	RenderData.push_back(0.0);
 	RenderData.push_back(1.0);
+
 	RenderData.push_back(0.5);
 	RenderData.push_back(-0.5);
+	RenderData.push_back(-0.5);
+
 	RenderData.push_back(1.0);
+	RenderData.push_back(1.0);
+
 	RenderData.push_back(0.5);
 	RenderData.push_back(0.5);
+	RenderData.push_back(-0.5);
+
 	RenderData.push_back(1.0);
+	RenderData.push_back(0.0);
+
+	
+	RenderData.push_back(-0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(-0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	RenderData.push_back(0.5);
+	*/
 	//OK！
 
 	//复制数据

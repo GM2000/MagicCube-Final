@@ -40,6 +40,12 @@
     <Filter Include="Manager\MobManager\PlayerManager">
       <UniqueIdentifier>{0fb9b6de-18ed-4903-9a35-ba0ec248098a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\RenderManager\ShaderManager">
+      <UniqueIdentifier>{70af6987-a62e-4d69-892e-5030f23a7980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\RenderManager\TextureManager">
+      <UniqueIdentifier>{8a129338-5a0e-4283-ac87-316cb3a03277}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MagicCube.h">
@@ -57,9 +63,6 @@
     <ClInclude Include="World.h">
       <Filter>Manager\WorldManager</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Manager\RenderManager</Filter>
-    </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>Manager\RenderManager\ScreenManager</Filter>
     </ClInclude>
@@ -75,6 +78,9 @@
     <ClInclude Include="Player.h">
       <Filter>Manager\MobManager\PlayerManager</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Manager\RenderManager\ShaderManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -87,9 +93,6 @@
       <Filter>Manager\WorldManager</Filter>
     </ClCompile>
     <ClCompile Include="RenderManager.cpp">
-      <Filter>Manager\RenderManager</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadShader.cpp">
       <Filter>Manager\RenderManager</Filter>
     </ClCompile>
     <ClCompile Include="InitCallBack.cpp">
@@ -112,6 +115,18 @@
     </ClCompile>
     <ClCompile Include="Screen.cpp">
       <Filter>Manager\RenderManager\ScreenManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadShader.cpp">
+      <Filter>Manager\RenderManager\ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UseShader.cpp">
+      <Filter>Manager\RenderManager\ShaderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="InitTexture.cpp">
+      <Filter>Manager\RenderManager\TextureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadTexture.cpp">
+      <Filter>Manager\RenderManager\TextureManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,12 +1,11 @@
 
 #include <thread>
-#include "Player.h"
 #include "World.h"
 #include "Screen.h"
+#include "Mob.h"
 
 std::thread GameThread;
 
-player Player;
 
 //ÓÎÏ·Ö÷Ñ­»·
 void gameMain()
@@ -19,7 +18,7 @@ void gameMain()
 		}
 		else
 		{
-			Player.playerMove();
+			Mob.refreshMobs();
 		}
 	}
 }
@@ -27,5 +26,4 @@ void gameMain()
 void initGame()
 {
 	GameThread = std::thread(gameMain);
-	Player.bindMob(Mob.addMob());
 }

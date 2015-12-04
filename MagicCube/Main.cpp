@@ -1,6 +1,7 @@
 
 #include "Screen.h"
 #include "Chunk.h"
+#include "Mob.h"
 //初始化Chunk
 world MainWorld;
 
@@ -9,12 +10,17 @@ int renderMainLoop();
 void initGame();
 void initScreen();
 void initTexture();
+void initMob();
 
 int main()
 {
 	//初始化OpenGL
 	initGL();
 
+	//初始化生物
+	initMob();
+
+	Mob.addMob(MobType[0]);
 	//初始化游戏
 	initGame();
 

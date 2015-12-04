@@ -1,7 +1,6 @@
 #pragma once
 
 #include "RenderGroup.h"
-#include "Player.h"
 #include <mutex>
 
 class screen

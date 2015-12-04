@@ -2,9 +2,11 @@
 
 #include "Render.h"
 
+//着色器基本信息
 typedef void(*setShaderData)();
 typedef void(*prepareRender)(GLuint ProgramID);
 
+//一个shader
 struct shader
 {
 	prepareRender PrepareRender;

@@ -1,8 +1,6 @@
 
 #include "Render.h"
 
-#include "Player.h"
-
 bool Keys[512] = { false };
 
 void KeyBoardCallBack(GLFWwindow* Window, int Key, int Scancode, int Action, int Mods)

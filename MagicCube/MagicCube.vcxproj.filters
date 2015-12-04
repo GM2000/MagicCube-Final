@@ -37,9 +37,6 @@
     <Filter Include="Manager\GameManager">
       <UniqueIdentifier>{e5f1ac33-8c71-4e61-8c90-ed52f4d3c4f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager\MobManager\PlayerManager">
-      <UniqueIdentifier>{0fb9b6de-18ed-4903-9a35-ba0ec248098a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Manager\RenderManager\ShaderManager">
       <UniqueIdentifier>{70af6987-a62e-4d69-892e-5030f23a7980}</UniqueIdentifier>
     </Filter>
@@ -74,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Mob.h">
       <Filter>Manager\MobManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Manager\MobManager\PlayerManager</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Manager\RenderManager\ShaderManager</Filter>

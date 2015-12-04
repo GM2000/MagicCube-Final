@@ -18,7 +18,7 @@ int initGL()
 		return -1;
 
 	//´´½¨´°¿Ú
-	window = glfwCreateWindow(640, 480, "TEST", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Magic Cube", NULL, NULL);
 
 	if (!window)
 	{

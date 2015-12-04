@@ -20,7 +20,7 @@ public:
 	glm::mat4 readGobalTranslate()
 	{
 		MutexLock.lock();
-
+	
 		glm::mat4 ReadData = GobalTranslate;
 
 		MutexLock.unlock();

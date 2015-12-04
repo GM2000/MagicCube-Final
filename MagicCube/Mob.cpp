@@ -1,7 +1,7 @@
 
 #include "Render.h"
 #include "Mob.h"
-
+#include <iostream>
 mobs Mob;
 
 std::vector<mobType> MobType;
@@ -16,7 +16,7 @@ void playerRefresh(mob* Mob)
 {
 	bool HasChange = false;
 
-	double FromLastTime = (glfwGetTime() - Mob->LastMoveTime) * 10;
+	double FromLastTime = glfwGetTime() - Mob->LastMoveTime;
 
 	double MouseXMove;
 	double MouseYMove;

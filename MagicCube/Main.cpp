@@ -42,73 +42,37 @@ int main()
 
 	RenderData.reserve(100);
 	//提供渲染数据
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.0);
+	for (int i = 0; i < 1000; i++)
+	{
+		RenderData.push_back(-0.5);
+		RenderData.push_back(0.5);
+		RenderData.push_back(i*0.00001);
 
-	RenderData.push_back(-0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.0);
+		RenderData.push_back(0.0);
+		RenderData.push_back(0.0);
+		/////////////////////
+		RenderData.push_back(-0.5);
+		RenderData.push_back(-0.5);
+		RenderData.push_back(i*0.00001);
 
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.0);
+		RenderData.push_back(0.0);
+		RenderData.push_back(1.0);
+		//////////////////////
+		RenderData.push_back(0.5);
+		RenderData.push_back(-0.5);
+		RenderData.push_back(i*0.00001);
 
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.0);
+		RenderData.push_back(1.0);
+		RenderData.push_back(1.0);
+		////////////////////
+		RenderData.push_back(0.5);
+		RenderData.push_back(0.5);
+		RenderData.push_back(i*0.00001);
 
-	RenderData.push_back(0.0);
-	RenderData.push_back(0.0);
-	RenderData.push_back(0.0);
-	RenderData.push_back(1.0);
-	RenderData.push_back(1.0);
-	RenderData.push_back(1.0);
-	RenderData.push_back(1.0);
-	RenderData.push_back(0.0);
-	/*
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-
-	RenderData.push_back(0.0);
-	RenderData.push_back(0.0);
-
-	RenderData.push_back(-0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(-0.5);
-
-	RenderData.push_back(0.0);
-	RenderData.push_back(1.0);
-
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(-0.5);
-
-	RenderData.push_back(1.0);
-	RenderData.push_back(1.0);
-
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-
-	RenderData.push_back(1.0);
-	RenderData.push_back(0.0);
-
-	
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(-0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	RenderData.push_back(0.5);
-	*/
+		RenderData.push_back(1.0);
+		RenderData.push_back(0.0);
+	}
+	//////////////////////////////////////////////
 	//OK！
 
 	//复制数据

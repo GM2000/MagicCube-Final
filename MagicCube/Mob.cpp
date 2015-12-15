@@ -16,7 +16,7 @@ void playerRefresh(mob* Mob)
 {
 	bool HasChange = false;
 
-	double FromLastTime = glfwGetTime() - Mob->LastMoveTime;
+	double FromLastTime = (glfwGetTime() - Mob->LastMoveTime) * 10;
 
 	double MouseXMove;
 	double MouseYMove;

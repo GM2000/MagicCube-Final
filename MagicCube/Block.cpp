@@ -1,18 +1,32 @@
 
 #include "Block.h"
 
-void blocks::block::addRenderData(std::vector<GLfloat> *TodalData, int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack)
-{
-	std::vector<GLfloat> RenderData;
+blocks Blocks;
 
-	switch (BlockType)
+void stone(std::vector<GLfloat> *TodalData, int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack)
+{
+	if (RenderTop)
 	{
-	case Block_Tyoe_Block_Normal:
-	{
-		TodalData->push_back(0.0f);
-		TodalData->push_back(3.2f);
+		//左后上
+		TodalData->push_back(-1.0); TodalData->push_back(1.0); TodalData->push_back(-1.0);//顶点
+
+		TodalData->push_back(0 / 32.0); TodalData->push_back(0 / 32.0);//纹理
+		//右后上
+		TodalData->push_back( 1.0); TodalData->push_back(1.0); TodalData->push_back(-1.0);//顶点
+
+		TodalData->push_back(1 / 32.0); TodalData->push_back(0 / 32.0);//纹理
+		//右前上
+		TodalData->push_back( 1.0); TodalData->push_back(1.0); TodalData->push_back( 1.0);//顶点
+
+		TodalData->push_back(1 / 32.0); TodalData->push_back(1 / 32.0);//纹理
+		//左前上
+		TodalData->push_back(-1.0); TodalData->push_back(1.0); TodalData->push_back( 1.0);//顶点
+
+		TodalData->push_back(0 / 32.0); TodalData->push_back(1 / 32.0);//纹理
 	}
-	default:
-		break;
-	}
+}
+
+void initBlock()
+{
+	Blocks.addBlock("Stone", stone);
 }

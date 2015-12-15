@@ -16,6 +16,10 @@ public:
 	}
 	void setData(std::vector<GLfloat> *RenderData)
 	{
+		if (RenderData->size() == 0)
+		{
+			return;
+		}
 		glGenBuffers(1, &Buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 

@@ -2,15 +2,7 @@
 
 #include "MagicCube.h"
 
-const int Texture_Up	 = 0;
-const int Texture_Down	 = 1;
-const int Texture_Left	 = 2;
-const int Texture_Right	 = 3;
-const int Texture_Front	 = 4;
-const int Texture_Back	 = 5;
-
-const int Block_Tyoe_Block_Normal	= 0;
-const int Block_Tyoe_HalfBlock		= 1;
+typedef void(*addRenderData)(std::vector<GLfloat> *TodalData, int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack);
 
 struct blockData
 {
@@ -20,81 +12,57 @@ struct blockData
 
 class blocks
 {
-public:
-	class blockTexture
-	{
-		int Texture[6]{ 0 };
-	public:
-		blockTexture(
-			int TextureUp,
-			int TextureDown,
-			int TextureLeft,
-			int TextureRight,
-			int TextureFront,
-			int TextureBack)
-		{
-			Texture[Texture_Up]		= TextureUp;
-			Texture[Texture_Down]	= TextureDown;
-			Texture[Texture_Left]	= TextureLeft;
-			Texture[Texture_Right]	= TextureRight;
-			Texture[Texture_Front]	= TextureFront;
-			Texture[Texture_Back]	= TextureBack;
-		}
-
-		blockTexture()
-		{
-			Texture[Texture_Up]		= 0;
-			Texture[Texture_Down]	= 0;
-			Texture[Texture_Left]	= 0;
-			Texture[Texture_Right]	= 0;
-			Texture[Texture_Front]	= 0;
-			Texture[Texture_Back]	= 0;
-		}
-
-	};
 private:
+	//block类
 	class block
 	{
-		blockTexture	BlockTexture;
-
-		unsigned int	BlockType;
 		unsigned int	BlockID;
 
 		std::string BlockName;
 
 	public:
-		block(unsigned int BlockID, blockTexture BlockTexture, const char* BlockName,unsigned int BlockType)
+		addRenderData AddRenderData;
+
+		//初始化Block
+		block(unsigned int BlockID, const char* BlockName, addRenderData AddRenderData)
 		{
-			block::BlockID		= BlockID;
-			block::BlockTexture = BlockTexture;
-			block::BlockName	= BlockName;
-			block::BlockType	= BlockType;
+			block::BlockID			= BlockID;
+			block::BlockName		= BlockName;
+			block::AddRenderData	= AddRenderData;
 
 		}
-		void addRenderData(std::vector<GLfloat> *TodalData,int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack);
-
+		//获取BlockID
 		unsigned int getBlockID()
 		{
 			return BlockID;
 		}
+		//获取Block名称
 		std::string getBlockName()
 		{
 			return BlockName;
 		}
 	};
-public:
+	//储存所有种类block数据
 	std::vector<block> Blocks;
-
+public:
+	//通过ID查找Block
 	block operator [](unsigned int BlockID)
 	{
 		if (BlockID > Blocks.size())
 		{
-			return block(0,blockTexture(),"NULL",0);
+			return block(0,"NULL",NULL);
 		}
 		return Blocks[BlockID];
 	}
-	void addBlock(const char* BlockName, blockTexture BlockTexture,unsigned int BlockType)
+	//添加一个新的Block
+	void addBlock(const char* BlockName, addRenderData AddRenderData)
 	{
-		Blocks.push_back(block((unsigned int)Blocks.size(), BlockTexture, BlockName, BlockType));
+		Blocks.push_back(block((unsigned int)Blocks.size(), BlockName, AddRenderData));
 	}
 };
+
+//声明Blocks
+extern blocks Blocks;
+
+//初始化Block
+void initBlock();

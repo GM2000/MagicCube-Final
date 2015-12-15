@@ -24,12 +24,13 @@ int main()
 	//初始化游戏
 	initGame();
 
+	//初始化屏幕
 	initScreen();
-
+	//初始化纹理
 	initTexture();
+	//初始化Block
+	initBlock();
 
-	//添加一个屏幕并且激活
-	//Screen.enableScreen(Screen.addScreen());
 	//添加一个屏幕并且激活
 	Screen.enableScreen(screenInfo::GameScreen);
 
@@ -41,37 +42,8 @@ int main()
 	std::vector<GLfloat> RenderData;
 
 	RenderData.reserve(100);
-	//提供渲染数据
-	for (int i = 0; i < 1000; i++)
-	{
-		RenderData.push_back(-0.5);
-		RenderData.push_back(0.5);
-		RenderData.push_back(i*0.00001);
 
-		RenderData.push_back(0.0);
-		RenderData.push_back(0.0);
-		/////////////////////
-		RenderData.push_back(-0.5);
-		RenderData.push_back(-0.5);
-		RenderData.push_back(i*0.00001);
-
-		RenderData.push_back(0.0);
-		RenderData.push_back(1.0);
-		//////////////////////
-		RenderData.push_back(0.5);
-		RenderData.push_back(-0.5);
-		RenderData.push_back(i*0.00001);
-
-		RenderData.push_back(1.0);
-		RenderData.push_back(1.0);
-		////////////////////
-		RenderData.push_back(0.5);
-		RenderData.push_back(0.5);
-		RenderData.push_back(i*0.00001);
-
-		RenderData.push_back(1.0);
-		RenderData.push_back(0.0);
-	}
+	Blocks[0].AddRenderData(&RenderData, 0, 1, 0, 0, 0, 0, 0);
 	//////////////////////////////////////////////
 	//OK！
 

@@ -4,12 +4,17 @@
 
 class mob;
 //生物基本信息
-typedef void(*refreshMob)(mob*);
+typedef bool(*refreshMob)(mob*);
 typedef void(*renderMob)(mob*);
 
 //生物基本信息（渲染，移动等）
 struct mobType
 {
+	mobType(refreshMob RefreshMob,renderMob RenderMob)
+	{
+		mobType::RefreshMob = RefreshMob;
+		mobType::RenderMob = RenderMob;
+	}
 	refreshMob RefreshMob;
 	renderMob  RenderMob;
 };
@@ -66,7 +71,12 @@ public:
 	{
 		for (unsigned int i = 0; i < Mob.size(); i++)
 		{
-			Mob[i].RefreshMob(&Mob[i]);
+			//警告！这里可能会有错误发生！
+			if (Mob[i].RefreshMob(&Mob[i]))
+			{
+				Camera.writeGobalTranslate(&(glm::translate(glm::mat4(), glm::vec3(Mob[i].MobLocation.X, Mob[i].MobLocation.Y, Mob[i].MobLocation.Z))));
+				Camera.writeGobalRotate(&(glm::rotate_slow(glm::mat4(), (float)Mob[i].MobLocation.XRot, glm::vec3(1.0f, 0.0f, 0.0f)) * glm::rotate(glm::mat4(), (float)Mob[i].MobLocation.YRot, glm::vec3(0.0f, 1.0f, 0.0f))));
+			}
 		}
 	}
 	//添加生物

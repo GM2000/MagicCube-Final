@@ -11,5 +11,5 @@ void windowResizeCallBack(GLFWwindow* Window, int WindowsWidth, int WindowsHeigh
 	WindowWidth		= WindowsWidth;
 	WindowHeight	= WindowsHeight;
 
-	GobalMat.GobalProjection = glm::perspective(45.0f, (GLfloat)WindowsWidth / (GLfloat)WindowsHeight, 0.1f, 500.0f);
+	Camera.GobalProjection = glm::perspective(45.0f, (GLfloat)WindowsWidth / (GLfloat)WindowsHeight, 0.1f, 500.0f);
 }

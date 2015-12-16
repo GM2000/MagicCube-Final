@@ -10,9 +10,9 @@ void normail3DSet()
 }
 void normail3DPrepare(GLuint ProgramID)
 {
-	glUniformMatrix4fv(UniformLocation[0], 1, GL_TRUE, glm::value_ptr(GobalMat.GobalProjection));
-	glUniformMatrix4fv(UniformLocation[1], 1, GL_TRUE, glm::value_ptr(GobalMat.readGobalTranslate()));
-	glUniformMatrix4fv(UniformLocation[2], 1, GL_TRUE, glm::value_ptr(GobalMat.readGobalRotate()));
+	glUniformMatrix4fv(UniformLocation[0], 1, GL_TRUE, glm::value_ptr(Camera.GobalProjection));
+	glUniformMatrix4fv(UniformLocation[1], 1, GL_TRUE, glm::value_ptr(Camera.readGobalTranslate()));
+	glUniformMatrix4fv(UniformLocation[2], 1, GL_TRUE, glm::value_ptr(Camera.readGobalRotate()));
 
 	glUseProgram(ProgramID);
 }

@@ -5,7 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class gobalMat
+class camera
 {
 	std::mutex MutexLock;
 
@@ -57,6 +57,6 @@ public:
 		MutexLock.unlock();
 	}
 };
-extern gobalMat GobalMat;
+extern camera Camera;
 
 extern std::vector<GLuint> TextureList;

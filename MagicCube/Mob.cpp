@@ -2,21 +2,23 @@
 #include "Render.h"
 #include "Mob.h"
 #include <iostream>
+
 mobs Mob;
 
 std::vector<mobType> MobType;
 
-const unsigned int Mob_Player = 0;
+unsigned int Mob_Player;
 
 const double PI = 3.141592653589793238462;
 
 double MouseSpeed = 50.0;
 
-void playerRefresh(mob* Mob)
+//移动玩家并且返回是否移动
+bool playerRefresh(mob* Mob)
 {
 	bool HasChange = false;
 
-	double FromLastTime = (glfwGetTime() - Mob->LastMoveTime) * 10;
+	double FromLastTime = (glfwGetTime() - Mob->LastMoveTime);
 
 	double MouseXMove;
 	double MouseYMove;
@@ -88,15 +90,21 @@ void playerRefresh(mob* Mob)
 	}
 	if (HasChange)
 	{
-		GobalMat.writeGobalTranslate(&(glm::translate(glm::mat4(), glm::vec3(Mob->MobLocation.X, Mob->MobLocation.Y, Mob->MobLocation.Z))));
-		GobalMat.writeGobalRotate(&(glm::rotate_slow(glm::mat4(), (float)Mob->MobLocation.XRot, glm::vec3(1.0f, 0.0f, 0.0f)) * glm::rotate(glm::mat4(), (float)Mob->MobLocation.YRot, glm::vec3(0.0f, 1.0f, 0.0f))));
+		Mob->LastMoveTime = glfwGetTime();
+		return true;
 	}
 
 	Mob->LastMoveTime = glfwGetTime();
+	return false;
+}
+
+void playerRender(mob* Mob)
+{
 }
 
 void initMob()
 {
-	MobType.resize(1);
-	MobType[Mob_Player].RefreshMob = playerRefresh;
+	//玩家
+	Mob_Player = MobType.size();
+	MobType.push_back(mobType(playerRefresh, playerRender));
 }

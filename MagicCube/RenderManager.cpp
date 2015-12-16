@@ -2,7 +2,7 @@
 #include "Screen.h"
 #include "Render.h"
 
-gobalMat GobalMat;
+camera Camera;
 
 GLFWwindow* window;
 
@@ -33,10 +33,11 @@ int initGL()
 	if (glewInit() != GLEW_OK)
 		return -3;
 
-	//glClearColor(1.0, 1.0, 1.0, 1.0);
-
 	initShader();
 	initCallBack();
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
 
 	glfwSetWindowSize(window, 870, 512);
 	

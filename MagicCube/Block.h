@@ -6,8 +6,7 @@ typedef void(*addRenderData)(std::vector<GLfloat> *TodalData, int Addition, bool
 
 struct blockData
 {
-	unsigned short	BlockID			= 0;
-	unsigned char	BlockAddition	= 0;
+	unsigned short	BlockID	= 0;
 };
 
 class blocks
@@ -63,6 +62,3 @@ public:
 
 //ÉùÃ÷Blocks
 extern blocks Blocks;
-
-//³õÊ¼»¯Block
-void initBlock();

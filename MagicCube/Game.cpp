@@ -4,11 +4,18 @@
 #include "Screen.h"
 #include "Mob.h"
 
-std::thread GameThread;
+std::thread GameMainThread;
 
+//初始化
+int	 initGL();
+void initBlock();
+void initGame();
+void initScreen();
+void initTexture();
+void initMob();
 
 //游戏主循环
-void gameMain()
+void gameMainThread()
 {
 	while (!glfwWindowShouldClose(window))
 	{
@@ -22,8 +29,23 @@ void gameMain()
 		}
 	}
 }
-
 void initGame()
 {
-	GameThread = std::thread(gameMain);
+	//初始化OpenGL
+	initGL();
+
+	//初始化生物
+	initMob();
+
+	//初始化屏幕
+	initScreen();
+
+	//初始化纹理
+	initTexture();
+
+	//初始化Block
+	initBlock();
+
+	GameMainThread = std::thread(gameMainThread);
+	GameMainThread.detach();
 }

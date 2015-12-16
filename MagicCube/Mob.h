@@ -71,7 +71,7 @@ public:
 	{
 		for (unsigned int i = 0; i < Mob.size(); i++)
 		{
-			//警告！这里可能会有错误发生！
+			//警告！这里有潜在的严重错误！
 			if (Mob[i].RefreshMob(&Mob[i]))
 			{
 				Camera.writeGobalTranslate(&(glm::translate(glm::mat4(), glm::vec3(Mob[i].MobLocation.X, Mob[i].MobLocation.Y, Mob[i].MobLocation.Z))));

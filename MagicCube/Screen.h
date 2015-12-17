@@ -51,7 +51,7 @@ public:
 	void drawScreen()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		
+
 		Screen[NowEnableScreen].drawScreen();
 	}
 	//ÐÞ¸ÄÊý¾Ý

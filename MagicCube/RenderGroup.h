@@ -8,35 +8,45 @@ class renderGroup
 	GLuint	Buffer			= 0;
 	GLuint  BufferSize		= 0;
 public:
+	std::vector<GLfloat>	RenderData;
+
 	bool	IsEnable = false;
 
+	renderGroup()
+	{
+		glGenBuffers(1, &Buffer);
+	}
 	void setShader(shader *ShaderProgram)
 	{
 		renderGroup::ShaderProgram = ShaderProgram;
 	}
-	void setData(std::vector<GLfloat> *RenderData)
+	void refreshData()
 	{
-		if (RenderData->size() == 0)
+		if (RenderData.size() <= BufferSize)
 		{
 			return;
 		}
-		glGenBuffers(1, &Buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 
-		glBufferData(GL_ARRAY_BUFFER, RenderData->size() * sizeof(GLfloat), &RenderData->at(0), GL_STATIC_DRAW);
-
-		ShaderProgram->SetShaderData();
+		glBufferData(GL_ARRAY_BUFFER, RenderData.size() * sizeof(GLfloat), &RenderData.at(0), GL_STATIC_DRAW);
 		
-		BufferSize =(GLuint)RenderData->size();
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+		BufferSize =(GLuint)RenderData.size();
 	}
 	void draw()
 	{
 		if (IsEnable)
 		{
+			glBindBuffer(GL_ARRAY_BUFFER, Buffer);
+
+			ShaderProgram->SetShaderData();
+
 			ShaderProgram->prepareRender();
 
-			glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 			glDrawArrays(GL_QUADS, 0, BufferSize / ShaderProgram->DataSize);
+
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}
 	}
 };

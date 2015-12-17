@@ -8,6 +8,8 @@ GLFWwindow* window;
 
 screens Screen;
 
+bool HasCameraChange = false;
+
 void initCallBack();
 void initShader();
 

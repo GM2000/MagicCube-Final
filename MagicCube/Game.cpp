@@ -3,6 +3,7 @@
 #include "World.h"
 #include "Screen.h"
 #include "Mob.h"
+#include <Windows.h>
 
 std::thread GameMainThread;
 
@@ -19,6 +20,7 @@ void gameMainThread()
 {
 	while (!glfwWindowShouldClose(window))
 	{
+		Sleep(10);
 		if (Screen.getEnableScreen() == 0)
 		{
 
@@ -45,6 +47,8 @@ void initGame()
 
 	//≥ı ºªØBlock
 	initBlock();
+
+	Mob.addMob(MobType[0]);
 
 	GameMainThread = std::thread(gameMainThread);
 	GameMainThread.detach();

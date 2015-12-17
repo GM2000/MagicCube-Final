@@ -1,8 +1,9 @@
 #pragma once
 
 #include "MagicCube.h"
+#include "RenderGroup.h"
 
-typedef void(*addRenderData)(std::vector<GLfloat> *TodalData, int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack);
+typedef void(*addRenderData)(renderGroup* RenderGroup, int Addition, bool RenderTop, bool RenderDown, bool RenderLeft, bool RenderRight, bool RenderFront, bool RenderBack, float X, float Y, float Z);
 
 struct blockData
 {

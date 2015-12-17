@@ -5,6 +5,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+extern bool HasCameraChange;
+
 class camera
 {
 	std::mutex MutexLock;
@@ -45,6 +47,8 @@ public:
 
 		GobalTranslate = *InputData;
 
+		HasCameraChange = true;
+
 		MutexLock.unlock();
 	}
 	//支持多线程，写入全局旋转
@@ -53,6 +57,8 @@ public:
 		MutexLock.lock();
 
 		GobalRotate = *InputData;
+
+		HasCameraChange = true;
 
 		MutexLock.unlock();
 	}

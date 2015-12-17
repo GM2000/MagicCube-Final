@@ -35,19 +35,19 @@ bool playerRefresh(mob* Mob)
 	if (MouseYMove<0)
 	{
 		MouseYMove = -MouseYMove;
-		Mob->MobLocation.XRot -= (float)(asin(MouseYMove * 0.0001) * MouseSpeed * FromLastTime * 5000);
+		Mob->MobLocation.XRot -= (float)(asin(MouseYMove * 0.0001) * MouseSpeed * FromLastTime * 100);
 	}
 	else {
-		Mob->MobLocation.XRot += (float)(asin(MouseYMove * 0.0001) * MouseSpeed * FromLastTime * 5000);
+		Mob->MobLocation.XRot += (float)(asin(MouseYMove * 0.0001) * MouseSpeed * FromLastTime * 100);
 	}
 
 	if (MouseXMove<0)
 	{
 		MouseXMove = -MouseXMove;
-		Mob->MobLocation.YRot -= (float)(asin(MouseXMove * 0.0001) * MouseSpeed * FromLastTime * 5000);
+		Mob->MobLocation.YRot -= (float)(asin(MouseXMove * 0.0001) * MouseSpeed * FromLastTime * 100);
 	}
 	else {
-		Mob->MobLocation.YRot += (float)(asin(MouseXMove * 0.0001) * MouseSpeed * FromLastTime * 5000);
+		Mob->MobLocation.YRot += (float)(asin(MouseXMove * 0.0001) * MouseSpeed * FromLastTime * 100);
 	}
 	if (Mob->MobLocation.XRot / (PI / 180) > 90)
 	{

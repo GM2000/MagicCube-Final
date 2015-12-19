@@ -131,7 +131,7 @@ void initShader()
 		{ GL_FRAGMENT_SHADER, "GLSL\\Normail3D.frag" },
 		{ GL_NONE, NULL } };
 
-	Shader.push_back(shader(loadShaders(Normail_3D_Shader), normail3DSet, normail3DPrepare,5));
+	Shader.push_back(shader(loadShaders(Normail_3D_Shader), normail3DUse,5));
 	GLuint ProgramID = Shader[Shader.size() - 1].ProgramID;
 
 	UniformLocation.push_back(glGetUniformLocation(ProgramID, "Frustum"));

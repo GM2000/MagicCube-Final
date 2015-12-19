@@ -40,14 +40,17 @@ class mob
 public:
 	location   MobLocation;
 
+	unsigned int MobID;
+
 	double Speed;
 	double LastMoveTime=glfwGetTime();
 
 	//初始化生物
-	mob(refreshMob RefreshMob,renderMob  RenderMob)
+	mob(refreshMob RefreshMob,renderMob  RenderMob,unsigned int  MobID)
 	{
 		mob::RefreshMob = RefreshMob;
 		mob::RenderMob  = RenderMob;
+		mob::MobID		= MobID;
 
 		MobLocation.X = 0;
 		MobLocation.Y = 0;
@@ -72,7 +75,7 @@ public:
 		for (unsigned int i = 0; i < Mob.size(); i++)
 		{
 			//警告！这里有潜在的严重错误！
-			if (Mob[i].RefreshMob(&Mob[i]))
+			if (Mob[i].RefreshMob(&Mob[i]) && Camera.Mob == i)
 			{
 				Camera.writeGobalTranslate(&(glm::translate(glm::mat4(), glm::vec3(Mob[i].MobLocation.X, Mob[i].MobLocation.Y, Mob[i].MobLocation.Z))));
 				Camera.writeGobalRotate(&(glm::rotate_slow(glm::mat4(), (float)Mob[i].MobLocation.XRot, glm::vec3(1.0f, 0.0f, 0.0f)) * glm::rotate(glm::mat4(), (float)Mob[i].MobLocation.YRot, glm::vec3(0.0f, 1.0f, 0.0f))));
@@ -82,7 +85,7 @@ public:
 	//添加生物
 	mob* addMob(mobType ModType)
 	{
-		Mob.push_back(mob(ModType.RefreshMob, ModType.RenderMob));
+		Mob.push_back(mob(ModType.RefreshMob, ModType.RenderMob, Mob.size()));
 		return &Mob[Mob.size() - 1];
 	}
 };

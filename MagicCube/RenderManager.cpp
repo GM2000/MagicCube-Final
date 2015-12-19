@@ -8,8 +8,6 @@ GLFWwindow* window;
 
 screens Screen;
 
-bool HasCameraChange = false;
-
 void initCallBack();
 void initShader();
 
@@ -38,6 +36,7 @@ int initGL()
 	initShader();
 	initCallBack();
 
+	//初始化Opengl的一些东西
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_FRONT);
 

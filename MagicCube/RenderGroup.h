@@ -40,13 +40,9 @@ public:
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 
-			ShaderProgram->SetShaderData();
-
-			ShaderProgram->prepareRender();
+			ShaderProgram->useShader();
 
 			glDrawArrays(GL_QUADS, 0, BufferSize / ShaderProgram->DataSize);
-
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}
 	}
 };

@@ -33,7 +33,7 @@ int main()
 			{
 				for (int j = 0; j < 16; j++)
 				{
-					Blocks[0].AddRenderData(RenderGroup, 0, 1, 1, 1, 1, 1, 1, i + i2 * 16, -64, j + j2 * 16);
+					Blocks[0].AddRenderData(RenderGroup, 0, 1, 1, 1, 1, 1, 1, i + i2 * 16, -2, j + j2 * 16);
 				}
 			}
 

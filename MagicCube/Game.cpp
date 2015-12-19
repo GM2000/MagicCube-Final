@@ -3,7 +3,6 @@
 #include "World.h"
 #include "Screen.h"
 #include "Mob.h"
-#include <Windows.h>
 
 std::thread GameMainThread;
 
@@ -20,7 +19,6 @@ void gameMainThread()
 {
 	while (!glfwWindowShouldClose(window))
 	{
-		Sleep(10);
 		if (Screen.getEnableScreen() == 0)
 		{
 
@@ -48,7 +46,10 @@ void initGame()
 	//初始化Block
 	initBlock();
 
+	//加载玩家
 	Mob.addMob(MobType[0]);
+	//设置相机
+	Camera.Mob = Mob.addMob(MobType[0])->MobID;
 
 	GameMainThread = std::thread(gameMainThread);
 	GameMainThread.detach();

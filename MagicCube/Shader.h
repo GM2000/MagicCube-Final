@@ -3,33 +3,29 @@
 #include "Render.h"
 
 //着色器基本信息
-typedef void(*setShaderData)();
-typedef void(*prepareRender)(GLuint ProgramID);
+typedef void(*useShader)(GLuint ProgramID);
 
 //一个shader
-struct shader
+class shader
 {
-	prepareRender PrepareRender;
+	useShader UseShader;
 public:
-	setShaderData SetShaderData;
+	unsigned int  ProgramID;
+	unsigned char DataSize;
 
-	shader(int ProgramID, setShaderData SetShaderData, prepareRender PrepareRender,unsigned char DataSize)
+	shader(int ProgramID, useShader UseShader,unsigned char DataSize)
 	{
 		shader::DataSize		= DataSize;
-		shader::SetShaderData	= SetShaderData;
-		shader::PrepareRender	= PrepareRender;
+		shader::UseShader		= UseShader;
 		shader::ProgramID		= ProgramID;
 	}
-	void prepareRender()
+	void useShader()
 	{
-		PrepareRender(ProgramID);
+		UseShader(ProgramID);
 	}
-	unsigned char DataSize;
-	unsigned int  ProgramID;
 };
 
 extern std::vector<GLuint> UniformLocation;
 extern std::vector<shader> Shader;
 //函数
-void normail3DSet();
-void normail3DPrepare(GLuint ProgramID);
+void normail3DUse(GLuint ProgramID);

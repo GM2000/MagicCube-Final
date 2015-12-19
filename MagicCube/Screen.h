@@ -3,11 +3,19 @@
 #include "RenderGroup.h"
 #include <mutex>
 
+typedef void(*screenOpenglCode)();
+
 class screen
 {
 	//每个都是正方形，数据排列为12(形状)+8(纹理)+16(颜色),法线这类的以后在加
 	std::vector<renderGroup> RenderGroup;
+
+	screenOpenglCode ScreenOpenglCode;
 public:
+	screen(screenOpenglCode ScreenOpenglCode)
+	{
+		screen::ScreenOpenglCode = ScreenOpenglCode;
+	}
 	renderGroup* addRenderGroup()
 	{
 		RenderGroup.push_back(renderGroup());
@@ -20,6 +28,8 @@ public:
 	}
 	void drawScreen()
 	{
+		ScreenOpenglCode();
+
 		for (unsigned int i = 0; i < RenderGroup.size(); i++)
 		{
 			RenderGroup[i].draw();
@@ -55,9 +65,9 @@ public:
 		Screen[NowEnableScreen].drawScreen();
 	}
 	//修改数据
-	unsigned int addScreen()
+	unsigned int addScreen(screenOpenglCode ScreenOpenglCode)
 	{
-		Screen.push_back(screen());
+		Screen.push_back(screen(ScreenOpenglCode));
 		VertexArrays.resize(Screen.size());
 
 		glGenVertexArrays(1,&VertexArrays[Screen.size() - 1]);
